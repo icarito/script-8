@@ -1,13 +1,13 @@
 const createReducer = () => {
   // Create the reducer, with the script8 state or an empty object.
-  const reducer = (state = window.initialState || {}, action) => {
+  const reducer = (state = window._initialState || {}, action) => {
     switch (action.type) {
       case 'TICK': {
-        if (window.update) {
+        if (window._update) {
           let newState
           try {
             newState = JSON.parse(JSON.stringify(state))
-            window.update(newState, action.input, action.elapsed)
+            window._update(newState, action.input, action.elapsed)
             if (newState.actors) {
               // Find actors with no name.
               const namelessActors = newState.actors.filter(

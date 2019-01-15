@@ -29,10 +29,11 @@ const logError = e => {
   console.warn(e)
 }
 
-window.initialState = null
-window.update = null
-window.drawActors = null
-window.draw = null
+window._initialState = null
+window._update = null
+window._drawActors = null
+window._draw = null
+
 window._script8 = {
   globalKeys: new Set()
 }
@@ -236,7 +237,7 @@ class Iframe extends Component {
         })
       })
       // Save previous initial state.
-      this.previousInitialState = window.initialState
+      this.previousInitialState = window._initialState
       // Eval the supplied game.
       const shadowString = `var ${[...shadows].join(',')}`
       // eslint-disable-next-line no-unused-vars
@@ -294,7 +295,7 @@ class Iframe extends Component {
         })
 
         // Draw this state.
-        window.draw && window.draw(this.store.getState())
+        window._draw && window._draw(this.store.getState())
 
         // Update fps, only if we had a new measurement.
         if (newFps !== undefined && newFps !== this.state.fps) {
@@ -334,7 +335,7 @@ class Iframe extends Component {
   }
 
   handleRestartClick () {
-    window.initialState = Date.now()
+    window._initialState = Date.now()
     this.reduxHistory = []
     this.forceUpdate()
   }
@@ -430,7 +431,7 @@ class Iframe extends Component {
         prevState.isPaused ||
         game !== prevState.game ||
         run !== prevState.run ||
-        !equal(window.initialState, this.previousInitialState)
+        !equal(window._initialState, this.previousInitialState)
       ) {
         // evaluate user code,
         // get redux state,
@@ -446,8 +447,8 @@ class Iframe extends Component {
         // Otherwise use the current store state. This will enable us to modify game
         // code and not lose game state.
         let storeState
-        if (!equal(window.initialState, this.previousInitialState)) {
-          storeState = window.initialState
+        if (!equal(window._initialState, this.previousInitialState)) {
+          storeState = window._initialState
           this.reduxHistory = []
         } else {
           storeState = (this.store && this.store.getState()) || {}
@@ -525,7 +526,7 @@ class Iframe extends Component {
 
             // Draw the timeline index state.
             const stateToDraw = alteredStates[newTimelineIndex]
-            window.draw(stateToDraw)
+            window._draw(stateToDraw)
 
             // Get all unique actors.
             const allActors = flatten(
@@ -546,18 +547,18 @@ class Iframe extends Component {
                       selectedActors.includes(d.name)
                     )) ||
                   []
-                // Disable logging during window.draw calls.
+                // Disable logging during window._draw calls.
                 this.updateGlobals({ log: NOOP })
-                window.drawActors &&
-                  window.drawActors({ actors: matchingActors }, true)
+                window._drawActors &&
+                  window._drawActors({ actors: matchingActors }, true)
                 // Re-enable console.log.
                 this.updateGlobals({ log })
               }
             })
 
             // Draw the timeLineIndex one last, not faded.
-            window.drawActors &&
-              window.drawActors({
+            window._drawActors &&
+              window._drawActors({
                 actors: alteredStates[newTimelineIndex].actors.filter(d =>
                   selectedActors.includes(d.name)
                 )
@@ -586,7 +587,7 @@ class Iframe extends Component {
             window.clear()
             // For each actor,
             // draw it on the canvas,
-            window.drawActors({
+            window._drawActors({
               actors: [
                 {
                   ...actor,
@@ -607,7 +608,7 @@ class Iframe extends Component {
             buttons[i].appendChild(lilCanvas)
           })
 
-          window.draw(this.store.getState())
+          window._draw(this.store.getState())
         }
       }
     }

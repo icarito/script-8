@@ -29,7 +29,7 @@ const biosLines = range(18).map(() => {
   return '  ' + range(4).map(() => random(1000, 9999)).join('      ')
 })
 
-update = () => {
+_update = () => {
 
   const elapsed = Date.now() - before
   const screen = screens[screenIndex]
@@ -71,7 +71,7 @@ const rects = flatten(
   size.map(x => size.map(y => [x, y, d, d]))
 )
 
-draw = () => {
+_draw = () => {
 
   const screen = screens[screenIndex]
 
