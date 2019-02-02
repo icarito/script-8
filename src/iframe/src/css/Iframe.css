@@ -4,52 +4,52 @@
   box-sizing: border-box;
 }
 .background-0 {
-  background-color: #f6d6bd;
+  background-color: #dcf5ff;
 }
 .background-1 {
-  background-color: #c3a38a;
+  background-color: #e6c86e;
 }
 .background-2 {
-  background-color: #997577;
+  background-color: #64b964;
 }
 .background-3 {
-  background-color: #816271;
+  background-color: #508cd7;
 }
 .background-4 {
-  background-color: #4e495f;
+  background-color: #d77355;
 }
 .background-5 {
-  background-color: #20394f;
+  background-color: #646964;
 }
 .background-6 {
-  background-color: #0f2a3f;
+  background-color: #55415f;
 }
 .background-7 {
-  background-color: #08141e;
+  background-color: #000;
 }
 .border-0 {
-  border-color: #f6d6bd;
+  border-color: #dcf5ff;
 }
 .border-1 {
-  border-color: #c3a38a;
+  border-color: #e6c86e;
 }
 .border-2 {
-  border-color: #997577;
+  border-color: #64b964;
 }
 .border-3 {
-  border-color: #816271;
+  border-color: #508cd7;
 }
 .border-4 {
-  border-color: #4e495f;
+  border-color: #d77355;
 }
 .border-5 {
-  border-color: #20394f;
+  border-color: #646964;
 }
 .border-6 {
-  border-color: #0f2a3f;
+  border-color: #55415f;
 }
 .border-7 {
-  border-color: #08141e;
+  border-color: #000;
 }
 @font-face {
   font-family: 'VT323';
@@ -64,7 +64,7 @@
   font-family: 'VT323', monospace;
 }
 html {
-  background: #08141e;
+  background: #000;
 }
 body {
   position: absolute;
@@ -91,9 +91,9 @@ body {
     outline: none;
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
-    border: solid #0f2a3f 1px;
-    background: #08141e;
-    color: #4e495f;
+    border: solid #55415f 1px;
+    background: #000;
+    color: #d77355;
     margin: 2px;
     display: flex;
     justify-content: center;
@@ -101,8 +101,8 @@ body {
     font-size: 2rem;
   }
   .mobile-buttons div.button.on {
-    background: #0f2a3f;
-    color: #08141e;
+    background: #55415f;
+    color: #000;
   }
   .mobile-buttons div.button.left,
   .mobile-buttons div.button.right {
@@ -138,7 +138,7 @@ body {
   }
   .mobile-buttons div.button.select,
   .mobile-buttons div.button.start {
-    color: #4e495f;
+    color: #d77355;
     font-size: 1rem;
     grid-row: 5/7;
   }
@@ -157,7 +157,7 @@ button {
 }
 .button {
   border: none;
-  color: #20394f;
+  color: #646964;
   cursor: pointer;
   outline: none;
   padding: 0 0.75rem;
@@ -166,14 +166,14 @@ button {
   font-size: 1.5rem;
 }
 .button.active {
-  color: #c3a38a;
+  color: #e6c86e;
 }
 .button:hover {
-  color: #f6d6bd;
+  color: #dcf5ff;
 }
 button.play {
   display: block;
-  border: solid #0f2a3f 1px;
+  border: solid #55415f 1px;
   height: 1.5rem;
   background: none;
   border: none;
@@ -198,7 +198,7 @@ ul li {
 }
 ul li button {
   background-color: rgba(0,0,0,0);
-  border: solid #0f2a3f 2px;
+  border: solid #55415f 2px;
   width: 3rem;
   padding: 0.35rem;
   height: 3rem;
@@ -210,13 +210,13 @@ ul li button canvas {
   opacity: 0.25;
 }
 ul li button:hover {
-  border-color: #997577;
+  border-color: #64b964;
 }
 ul li button:hover canvas {
   opacity: 0.5;
 }
 ul li button.active {
-  border-color: #f6d6bd;
+  border-color: #dcf5ff;
 }
 ul li button.active canvas {
   opacity: 1;
@@ -232,7 +232,7 @@ ul li button.active canvas {
 }
 .stats .fps {
   margin-left: auto;
-  color: #0f2a3f;
+  color: #55415f;
   font-size: 1.5rem;
 }
 .hide {

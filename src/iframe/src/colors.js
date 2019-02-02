@@ -1,24 +1,14 @@
 // TODO: consolidate - avoid duplication
-const rgbs = [
-  'rgb(246,214,189)',
-  'rgb(195,163,138)',
-  'rgb(153,117,119)',
-  'rgb(129,98,113)',
-  'rgb(78,73,95)',
-  'rgb(32,57,79)',
-  'rgb(15,42,63)',
-  'rgb(8,20,30)'
-]
 
 const triplets = [
-  [246, 214, 189],
-  [195, 163, 138],
-  [153, 117, 119],
-  [129, 98, 113],
-  [78, 73, 95],
-  [32, 57, 79],
-  [15, 42, 63],
-  [8, 20, 30]
+  [220, 245, 255],
+  [230, 200, 110],
+  [100, 185, 100],
+  [80, 140, 215],
+  [215, 115, 85],
+  [100, 105, 100],
+  [85, 65, 95],
+  [0, 0, 0]
 ]
 
 // const hexes = [
@@ -34,7 +24,8 @@ const triplets = [
 
 const colors = {
   rgb (i) {
-    return rgbs[i % rgbs.length]
+    var t = triplets[i % triplets.length]
+    return 'rgb(' + t[0] + ',' + t[1] + ',' + t[2] + ')'
   },
   triplet (i) {
     return triplets[i % triplets.length]
